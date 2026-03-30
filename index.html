@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuminArk Educational and Coaching Services OPC</title>
+  <meta name="description" content="LuminArk Educational and Coaching Services OPC — coming soon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy:  #0b0f1a;
+      --deep:  #0e1526;
+      --amber: #e8a830;
+      --gold:  #f5c842;
+      --cream: #f5ede0;
+      --muted: rgba(245, 237, 224, 0.55);
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      background-color: var(--navy);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── Background atmosphere ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 60%, rgba(232, 168, 48, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 45% 35% at 50% 58%, rgba(245, 200, 66, 0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+      animation: breathe 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes breathe {
+      from { opacity: 0.7; transform: scale(1); }
+      to   { opacity: 1;   transform: scale(1.04); }
+    }
+
+    /* ── Subtle grid overlay ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245, 237, 224, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245, 237, 224, 0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Main card ── */
+    .stage {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: clamp(2rem, 8vw, 5rem) clamp(1.5rem, 6vw, 4rem);
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* ── Ark glyph ── */
+    .glyph {
+      display: inline-block;
+      margin-bottom: 2rem;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-6px); }
+    }
+
+    .glyph svg {
+      width: clamp(48px, 8vw, 72px);
+      height: auto;
+      filter: drop-shadow(0 0 18px rgba(232, 168, 48, 0.55));
+    }
+
+    /* ── Brand name ── */
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 50%, #c47a15 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      position: relative;
+    }
+
+    .brand::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 50%, #c47a15 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: blur(18px);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    /* ── Company full name ── */
+    .company-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: clamp(0.75rem, 2.2vw, 0.95rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.6rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: clamp(40px, 10vw, 72px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+      margin: 0 auto 2.8rem;
+    }
+
+    /* ── Coming Soon headline ── */
+    .headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      letter-spacing: 0.01em;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    /* ── Supporting copy ── */
+    .tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+    }
+
+    /* ── Footer note ── */
+    .footer-note {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245, 237, 224, 0.2);
+      z-index: 1;
+    }
+
+    /* ── Entrance animations ── */
+    .glyph        { animation: float 6s ease-in-out infinite, fade-up 1s ease both; }
+    .brand        { animation: fade-up 1s ease 0.15s both; }
+    .company-name { animation: fade-up 1s ease 0.25s both; }
+    .divider      { animation: fade-up 1s ease 0.35s both; }
+    .headline     { animation: fade-up 1s ease 0.45s both; }
+    .tagline      { animation: fade-up 1s ease 0.55s both; }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage" role="main">
+
+    <div class="glyph" aria-hidden="true">
+      <!-- Stylised arch/ark glyph — a radiant arc with a central light point -->
+      <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#f5c842" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#c47a15" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="arcGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%"   stop-color="#c47a15"/>
+            <stop offset="50%"  stop-color="#f5c842"/>
+            <stop offset="100%" stop-color="#e8a830"/>
+          </linearGradient>
+        </defs>
+        <!-- Outer arc -->
+        <path d="M10 58 A 32 32 0 0 1 62 58" stroke="url(#arcGrad)" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Inner arc -->
+        <path d="M20 58 A 22 22 0 0 1 52 58" stroke="url(#arcGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+        <!-- Central pillar -->
+        <line x1="36" y1="24" x2="36" y2="58" stroke="url(#arcGrad)" stroke-width="2" stroke-linecap="round"/>
+        <!-- Light rays -->
+        <line x1="36" y1="18" x2="36" y2="10" stroke="#f5c842" stroke-width="2"   stroke-linecap="round"/>
+        <line x1="36" y1="18" x2="28" y2="12" stroke="#f5c842" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="36" y1="18" x2="44" y2="12" stroke="#f5c842" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="36" y1="18" x2="22" y2="16" stroke="#f5c842" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+        <line x1="36" y1="18" x2="50" y2="16" stroke="#f5c842" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+        <!-- Central glow dot -->
+        <circle cx="36" cy="18" r="3.5" fill="url(#glow)"/>
+        <circle cx="36" cy="18" r="1.8" fill="#fff" opacity="0.9"/>
+      </svg>
+    </div>
+
+    <h1 class="brand" data-text="LuminArk">LuminArk</h1>
+    <p class="company-name">Educational &amp; Coaching Services OPC</p>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <h2 class="headline">Coming Soon</h2>
+    <p class="tagline">Something bright is on its way.</p>
+
+  </main>
+
+  <p class="footer-note">LuminArk Educational and Coaching Services OPC</p>
+</body>
+</html>
